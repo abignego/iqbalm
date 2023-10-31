@@ -19,25 +19,22 @@ const HomePages = () => {
           <Modal.Title>Masukan Data Diri Anda</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ul>
-            <li>
-              <label htmlFor="">Isikan Nama </label>
-              <input type="text" placeholder=" Isi Nama" />
-            </li>
-            <button>a</button>
-          </ul>
+          <div className="modal">
+            <ul>
+              <li></li>
+            </ul>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Simpan
           </Button>
         </Modal.Footer>
       </Modal>
 
-      <hr />
       <div className="ContentData">
         <h2> DATA BASE WARGA MUHAMMADIYAH</h2>{" "}
         <Button variant="primary" onClick={handleShow}>
