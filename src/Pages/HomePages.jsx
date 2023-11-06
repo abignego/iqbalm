@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-const HomePages = () => {
-  return <div>HomePages</div>;
-};
-
-=======
 import { Table, Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 
@@ -97,5 +91,4 @@ const HomePages = () => {
   );
 };
 
->>>>>>> 8c90d0d (test)
 export default HomePages;
