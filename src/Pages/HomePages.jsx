@@ -7,16 +7,15 @@ const HomePages = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
-    <>
+    <div className="Homepages">
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Masukan Data Diri Anda</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="modal">
-            <ul>
-              <li></li>
-            </ul>
+          <div className="mb-3">
+            <label htmlFor="">Nama</label>
+            <input type="text" placeholder="Isikan nama" />
           </div>
         </Modal.Body>
         <Modal.Footer>
@@ -87,7 +86,7 @@ const HomePages = () => {
           </tbody>
         </Table>
       </div>
-    </>
+    </div>
   );
 };
 

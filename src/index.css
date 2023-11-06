@@ -10,6 +10,7 @@
 } .navbar{
   background: #13ebff;
   color-scheme: #13ebff;
+  
 }
 .navbar .nav-link a {
   padding: 4px 10px 5px 10px;
@@ -27,15 +28,18 @@
 }
 .navbar .nav-link .active{
   background-color: black;
-  font-size: 18px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-.sidebar{
-  color: #fff;
+.Homepages{
+  height: 90vh;
+}
+.footer{
+  height: 100px;
+  background: #13ebff;
 }
 .logo{
   display: flex;

@@ -36,7 +36,7 @@ export const navLinks = [
   {
     id: 5,
     path: "syaratketen",
-    text: "Syarat & Ketentuan",
+    text: "Syarat &",
   },
 ];
 
