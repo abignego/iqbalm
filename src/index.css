@@ -7,11 +7,33 @@
   list-style: none;
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
-} .Navbar{
+} .navbar{
   background: #13ebff;
   color-scheme: #13ebff;
 }
+.navbar .nav-link a {
+  padding: 4px 10px 5px 10px;
+  text-decoration: none;
+  color: azure;
+}
+.navbar .nav-link a:hover{
 
+  background-color: rebeccapurple;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.navbar .nav-link .active{
+  background-color: black;
+  font-size: 18px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
 .sidebar{
   color: #fff;
 }
