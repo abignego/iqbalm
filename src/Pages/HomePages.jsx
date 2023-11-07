@@ -1,33 +1,18 @@
-import { Table, Button, Modal } from "react-bootstrap";
-import { useState } from "react";
+import { Table } from "react-bootstrap";
+
+
 
 const HomePages = () => {
-  const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <div className="Homepages">
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton color="blue">
-          <Modal.Title>Masukan Data Diri Anda</Modal.Title>
-        </Modal.Header>
-        <Modal.Body></Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Simpan
-          </Button>
-        </Modal.Footer>
-      </Modal>
+   
 
       <div className="ContentData">
         <h2> DATA BASE WARGA MUHAMMADIYAH</h2>{" "}
-        <Button variant="primary" onClick={handleShow}>
-          Tambah Data
-        </Button>
+      
+       
+        <a href="/TambahDataJamaah" className="btn btn-primary"> Tambah Data</a>
         <Table striped>
           <thead>
             <tr>
