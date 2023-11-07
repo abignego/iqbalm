@@ -7,6 +7,7 @@
   list-style: none;
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
+  
 }
 .Brand a{
   color: white;
@@ -102,11 +103,26 @@ color: white;
   background: rgb(28, 17, 41, 0.88);
 
 }
+.ContainerIn{
+  background: #fff;
+  border-radius: 10px 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin: 20px;
+
+}
+form .input-box{
+  width: calc(100%/2 -20px);
+}
+.ContainerIn input{
+  width: 100%;
+}
 .FormInputData
 {
-  margin: 20px;
-  text-align: center;
-  display: flex;
+  background: linear-gradient(135deg,#71b7e6,#9b59b6);
+  padding-bottom: 20px;
+  
 }
 .menu-bar{
   height:  100vh;
@@ -116,4 +132,12 @@ color: white;
   gap: 15px;
   font-size: 1rem;
   position: relative;
+}
+.Inputed{
+  color: black;
+  padding: 5px;
+  margin: 10px;
+
+  background-color: rgba(224, 224, 224, 0.589) ;
+  border-radius: 5px 5px 5px 5px ;
 }
