@@ -9,15 +9,10 @@ const HomePages = () => {
   return (
     <div className="Homepages">
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton color="blue">
           <Modal.Title>Masukan Data Diri Anda</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <div className="mb-3">
-            <label htmlFor="">Nama</label>
-            <input type="text" placeholder="Isikan nama" />
-          </div>
-        </Modal.Body>
+        <Modal.Body></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
@@ -56,7 +51,11 @@ const HomePages = () => {
               <td>Jl Kihajar Dewantoro</td>
               <td>Gondrong</td>
               <td>
-                <button className="btn btn-secondary"> Ubah</button>
+                <a href="/faq">as</a>
+                <button className="btn btn-secondary" id="">
+                  {" "}
+                  Ubah
+                </button>
               </td>
             </tr>
             <tr>

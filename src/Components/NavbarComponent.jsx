@@ -5,9 +5,11 @@ import { NavLink } from "react-router-dom";
 const NavbarComponent = () => {
   return (
     <div>
-      <Navbar className="navbar">
+      <Navbar expand="lg" className="navbar">
         <Container>
-          <Navbar.Brand href="#home">Project XS-1</Navbar.Brand>
+          <Navbar.Brand className="Brand">
+            <a href="/">Project XS-1</a>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
