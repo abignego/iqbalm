@@ -109,7 +109,7 @@ color: white;
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
-  margin: 20px;
+  margin: 50px;
 
 }
 form .input-box{
@@ -121,8 +121,9 @@ form .input-box{
 .FormInputData
 {
   background: linear-gradient(135deg,#71b7e6,#9b59b6);
-  padding-bottom: 20px;
   
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .menu-bar{
   height:  100vh;
@@ -140,4 +141,18 @@ form .input-box{
 
   background-color: rgba(224, 224, 224, 0.589) ;
   border-radius: 5px 5px 5px 5px ;
+}
+.input-select{
+  justify-content: center;
+}
+.Selection{
+  color: rgb(0, 5, 8);
+  margin: 15px;
+  background: linear-gradient(135deg,#71b7e6,#9b59b6);
+  border-radius: 5px;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
