@@ -28,14 +28,14 @@ const InsertWargaPages = () => {
             />
           </div>
           <div className="input-box">
-            <span>Tempat</span>
+            <span>Tempat Lahir</span>
             <input
               onInvalid={"Masukan nma"}
               className="Inputed"
               type="text"
               name=""
               id=""
-              placeholder="Masukan Nik"
+              placeholder="Masukan Tempat Lahir"
             />
           </div>
           <div className="input-box">
@@ -46,7 +46,7 @@ const InsertWargaPages = () => {
               type="date"
               name=""
               id=""
-              placeholder="Masukan Nik"
+              placeholder=""
             />
           </div>
           <div className="input-select">
