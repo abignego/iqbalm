@@ -9,6 +9,7 @@ import NotFound from "./Pages/NotFound";
 import NavbarComponent from "./Components/NavbarComponent";
 import FooterComponent from "./Components/FooterComponent";
 import InsertWargaPages from "./Pages/InsertWargaPages";
+import FaqPages from "./Pages/FaqPages";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/TambahDataJamaah" Component={InsertWargaPages} />
           <Route path="/testimonial" Component={TestimonialPage} />
           <Route path="/Data" Component={DataPage} />
+          <Route path="/Faq" Component={FaqPages} />
           <Route path="*" Component={NotFound} />
         </Routes>
         <FooterComponent />

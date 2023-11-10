@@ -98,27 +98,55 @@ color: white;
   background: rgb(28, 17, 41, 0.88);
   
 }
+
+*::after{}
+*::before{}
 .ContainerIn{
-  background: #fff;
-  border-radius: 10px 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 20px;
   margin: 50px;
+  background-color: #fff;
+  margin-top: 10px;
+  width: 80%;
+  margin-bottom:55px;
+  min-width: 100px;
+  padding: 35px 50px;
+  position: relative;
   
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 20px 30px 25px rgb(0, 5, 8);
 }
-form .input-box{
-  width: calc(100%/2 -20px);
+h3{
+text-align: center;
+
 }
-.ContainerIn input{
+.row{
   width: 100%;
+  display: grid;
+  
+  grid-template-columns: repeat(auto-fit,minmax(300px,2fr));
+  grid-gap: 20px 30px;
+  margin-bottom: 20px;
+}
+body{
+
+  background: linear-gradient(135deg,#71b7e6,#9b59b6);
+}
+.BodyIn{
+  height: 120vh;
+  
+  
+ 
+}
+.input{
+ width: 100%;
 }
 .FormInputData
 {
   background: linear-gradient(135deg,#71b7e6,#9b59b6);
   
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 .menu-bar{
   height:  100vh;
@@ -132,11 +160,23 @@ form .input-box{
 .Inputed{
   color: black;
   padding: 5px;
-  margin: 10px;
+  margin: 5px;
   
   background-color: rgba(224, 224, 224, 0.589) ;
   border-radius: 5px 5px 5px 5px ;
 }
+input{
+  width: 100%;
+}
+textarea{color: black;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  background-color: rgba(224, 224, 224, 0.589) ;
+  border-radius: 5px 5px 5px 5px ;
+}
+  
+
 .input-select{
   justify-content: center;
 }
@@ -172,11 +212,12 @@ justify-content: space-between;
   width: 100%;
   text-align: left;
   margin-bottom: 2rem;
+  padding: 
 }
 .footer-link{
 background-color: ;
 width: 150px;
-margin: 1rem;
+margin: 2rem;
 display: flex;
 justify-content: flex-start;
 flex-direction: column;

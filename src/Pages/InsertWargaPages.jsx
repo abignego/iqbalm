@@ -1,11 +1,62 @@
 const InsertWargaPages = () => {
   return (
-    <form action="#">
-      <div className="FormInputData">
-        <div className="ContainerIn">
+    <div className="ContentIWP">
+      <form action="#">
+        <div className="BodyIn">
+          <div className="ContainerIn">
+            <span>
+              {" "}
+              <h3>Register</h3>
+            </span>
+            <form action="">
+              <div className="row">
+                <div className="column">
+                  <label htmlFor="">Name</label>
+                  <input
+                    className="Inputed"
+                    type="text"
+                    placeholder="Masukan Nama"
+                  />
+                </div>
+                <div className="column">
+                  <label htmlFor="">Name</label>
+                  <input
+                    className="Inputed"
+                    type="text"
+                    placeholder="Masukan Nama"
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="column">
+                  <label htmlFor="">Name</label>
+                  <input
+                    className="Inputed"
+                    type="text"
+                    placeholder="Masukan Nama"
+                  />
+                </div>
+                <div className="column">
+                  <label htmlFor="">Name</label>
+                  <input
+                    className="Inputed"
+                    type="text"
+                    placeholder="Masukan Nama"
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="column">
+                  <label htmlFor="">Name</label>
+                  <textarea name="" id="" cols="30" rows="10"></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        {/* <div className="ContainerIn">
+          <span className="title">Register</span>
           <div className="input-box">
-            <h3 className="">REGISTER</h3>
-            <hr />
             <span>Nama Lengkap</span>
             <input
               onInvalid={"Masukan nma"}
@@ -60,13 +111,12 @@ const InsertWargaPages = () => {
               <option value="Ranting Poris">Ranting Poris</option>
             </select>
           </div>
-
           <div className="button">
             <input type="submit" className="btn btn-primary" value="Register" />
           </div>
-        </div>
-      </div>
-    </form>
+        </div>*/}
+      </form>
+    </div>
   );
 };
 

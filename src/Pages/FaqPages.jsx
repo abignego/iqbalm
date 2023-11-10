@@ -1,9 +1,21 @@
-
-
+import Chart from "apexcharts";
+import React from "react";
 const FaqPages = () => {
   return (
-    <div>FaqPages</div>
-  )
-}
+    <React.Fragment>
+      <div className="contain">
+        <Chart
+          type="pie"
+          width={1349}
+          heigh={550}
+          series={[23, 42, 23, 23]}
+          options={{
+            labels: ["indo", "joko", "adsa", "asda"],
+          }}
+        />
+      </div>
+    </React.Fragment>
+  );
+};
 
-export default FaqPages
+export default FaqPages;
