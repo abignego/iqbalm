@@ -9,6 +9,12 @@
   font-family: 'Poppins',sans-serif;
   
 }
+.ContentData{
+ background-color: #f9f9f9;
+ overflow: auto;
+ padding: 20px;
+
+}
 .Brand a{
   color: white;
   text-decoration: none;
@@ -110,7 +116,7 @@ color: white;
   min-width: 100px;
   padding: 35px 50px;
   position: relative;
-  
+  text-align: center;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -125,7 +131,7 @@ text-align: center;
 .row{
   width: 100%;
   display: grid;
-  
+  text-align: left;
   grid-template-columns: repeat(auto-fit,minmax(300px,2fr));
   grid-gap: 20px 30px;
   margin-bottom: 20px;
@@ -135,7 +141,7 @@ body{
   background: linear-gradient(135deg,#71b7e6,#9b59b6);
 }
 .BodyIn{
-  height: 120vh;
+  height: 100%;
   
   
  
@@ -161,13 +167,13 @@ body{
   color: black;
   padding: 5px;
   margin: 5px;
-  
   background-color: rgba(224, 224, 224, 0.589) ;
   border-radius: 5px 5px 5px 5px ;
 }
 input{
   width: 100%;
 }
+
 textarea{color: black;
   padding: 5px;
   margin: 5px;
@@ -215,7 +221,7 @@ justify-content: space-between;
   padding: 
 }
 .footer-link{
-background-color: ;
+
 width: 150px;
 margin: 2rem;
 display: flex;

@@ -10,25 +10,10 @@ const HomePages = () => {
     { name: "Ranting Cipondoh", value: 100 },
     { name: "Ranting Poris", value: 100 },
   ];
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
   return (
     <div className="Homepages">
-      <div className="chartkiri">
-        <PieChart width={400} height={400}>
-          <Pie
-            dataKey="value"
-            isAnimationActive={false}
-            data={data}
-            cx="50%"
-            cy="50%"
-            outerRadius={80}
-            fill="#8884d8"
-          />
-
-          <Tooltip />
-        </PieChart>
-      </div>
+      <div className="chartkiri"></div>
       <div className="chart-kanan">
         <span>
           <h3>RANTING GONDRONG {}</h3>
@@ -37,12 +22,18 @@ const HomePages = () => {
       </div>
 
       <div className="ContentData">
+        <div className="col">
+          <div className="row">
+            <a href="/TambahDataJamaah" className="btn btn-primary">
+              {" "}
+              Tambah Data
+            </a>{" "}
+            <input className="Inputed" placeholder="Cari" type="search" />
+            <button className="btn btn-secondary">Cari</button>
+          </div>
+        </div>
         <h2> DATA BASE WARGA MUHAMMADIYAH</h2>{" "}
-        <a href="/TambahDataJamaah" className="btn btn-primary">
-          {" "}
-          Tambah Data
-        </a>
-        <Table striped>
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th>No</th>
