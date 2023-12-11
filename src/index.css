@@ -9,11 +9,42 @@
   font-family: 'Poppins',sans-serif;
   
 }
+.chart{
+  background-color: white;
+  margin:5px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.NotFound{
+  height: 20rem;
+}
+.content-nf{
+  text-align: center;
+  margin-top: 11%;
+}
+.col-hp{
+  background-color: #fff;
+  height: 5rem;
+  padding: 10px;
+  border-radius: 10px 10px ;
+  -webkit-border-radius: 10px 10px ;
+  -moz-border-radius: 10px 10px ;
+  -ms-border-radius: 10px 10px ;
+  -o-border-radius: 10px 10px ;
+}
 .ContentData{
  background-color: #f9f9f9;
  overflow: auto;
  padding: 20px;
-
+ border-radius: 10px 10px;
+ -webkit-border-radius: 10px 10px;
+ -moz-border-radius: 10px 10px;
+ -ms-border-radius: 10px 10px;
+ -o-border-radius: 10px 10px;
 }
 .Brand a{
   color: white;
@@ -105,8 +136,7 @@ color: white;
   
 }
 
-*::after{}
-*::before{}
+
 .ContainerIn{
   margin: 50px;
   background-color: #fff;
@@ -128,6 +158,14 @@ h3{
 text-align: center;
 
 }
+.row-hp{
+  width: 100%;
+  display: grid;
+  text-align: left;
+  grid-template-columns: repeat(auto-fit,minmax(200px,2fr));
+  grid-gap: 20px 30px;
+  margin-bottom: 20px;
+}
 .row{
   width: 100%;
   display: grid;
@@ -135,6 +173,31 @@ text-align: center;
   grid-template-columns: repeat(auto-fit,minmax(300px,2fr));
   grid-gap: 20px 30px;
   margin-bottom: 20px;
+}
+.table{
+  margin: auto;
+  white-space: nowrap;
+  padding: 3px;
+  text-align: center;
+  table-layout: auto;
+  max-width: 100%;
+  width: 100%;
+ 
+  background-color: #ffffff;
+  align-items: center;
+  display: block;
+  overflow: hidden;
+  table-layout: fixed;
+  overflow-x: auto;
+}
+.table th,
+.table td{
+  padding: 0,8rem;
+  margin-top: 4px;
+  padding:10px;
+  border: 1px solid #000000;
+  border-top: 0,5 solid;
+ 
 }
 body{
 
@@ -181,7 +244,16 @@ textarea{color: black;
   background-color: rgba(224, 224, 224, 0.589) ;
   border-radius: 5px 5px 5px 5px ;
 }
+.Search{
+  justify-content: left;
+  width: 200px;
+  margin:10px;
+padding: 6px; 
+}
   
+table{
+  margin-top: 20px;
+}
 
 .input-select{
   justify-content: center;
@@ -218,7 +290,7 @@ justify-content: space-between;
   width: 100%;
   text-align: left;
   margin-bottom: 2rem;
-  padding: 
+ 
 }
 .footer-link{
 

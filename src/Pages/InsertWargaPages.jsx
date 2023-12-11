@@ -1,3 +1,4 @@
+import { useState } from "react";
 const InsertWargaPages = () => {
   return (
     <div className="ContentIWP">
@@ -16,6 +17,7 @@ const InsertWargaPages = () => {
                     className="Inputed"
                     type="text"
                     placeholder="Masukan Nama"
+                    name="name"
                   />
                 </div>
                 <div className="column">

@@ -1,94 +1,198 @@
+import { useEffect, useState } from "react";
+import DataTable from "react-data-table-component";
 import { Table } from "react-bootstrap";
-import { PieChart, Tooltip, Cell, Pie } from "recharts";
+import {
+  Chart as ChartJs,
+  LineElement,
+  PointElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+  BarElement,
+} from "chart.js";
+
+import { Bar } from "react-chartjs-2";
+import axios from "axios";
+
+ChartJs.register(
+  LineElement,
+  BarElement,
+  PointElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend
+);
 
 const HomePages = () => {
-  const data = [
-    { name: "Ranting Gondrong", value: 1002 },
-    { name: "Ranting Petir", value: 1002 },
-    { name: "Ranting Ketapang", value: 1002 },
-    { name: "Ranting Kenanga", value: 1002 },
-    { name: "Ranting Cipondoh", value: 100 },
-    { name: "Ranting Poris", value: 100 },
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8081/")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const date = {
+    labels: ["Gondrong", "Petir", "Cipondoh", "Ketapang", "Kenanga", "Poris"],
+    datasets: [
+      {
+        label: "Penambahan Data Tiap Bulan",
+        data: [30, 33, 54, 34, 66, 32],
+        borderColor: [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(255, 159, 64, 0.2)",
+          "rgba(255, 205, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+        ],
+        tension: 0.4,
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(255, 159, 64, 0.2)",
+          "rgba(255, 205, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+        ],
+        borderWidth: 2,
+      },
+    ],
+  };
+
+  const options = {};
+  const columns = [
+    {
+      name: "Nama",
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: "Nik",
+      selector: (row) => row.nik,
+    },
+    {
+      name: "Tempat Lahir",
+      selector: (row) => row.tept,
+    },
+
+    {
+      name: "Tanggal Lahir",
+      selector: (row) => row.tgllhr,
+    },
+    {
+      name: "Asal Ranting",
+      selector: (row) => row.asal,
+    },
   ];
+
+  const [records, setRecords] = useState(data);
+
+  function handleFilter(event) {
+    const newData = data.filter((row) => {
+      return row.name
+        .toLowerCase()
+        .includes(
+          event.target.value.toLowerCase(),
+          row.nik
+            .toLocaleLowerCase()
+            .includes(event.target.value.toLocaleLowerCase())
+        );
+    });
+    setRecords(newData);
+  }
 
   return (
     <div className="Homepages">
-      <div className="chartkiri"></div>
-      <div className="chart-kanan">
-        <span>
-          <h3>RANTING GONDRONG {}</h3>
-          <h3>RANTING Petir {}</h3>
-        </span>
+      <div className="chart">
+        <Bar data={date} options={options} />
       </div>
-
-      <div className="ContentData">
-        <div className="col">
-          <div className="row">
-            <a href="/TambahDataJamaah" className="btn btn-primary">
-              {" "}
-              Tambah Data
-            </a>{" "}
-            <input className="Inputed" placeholder="Cari" type="search" />
-            <button className="btn btn-secondary">Cari</button>
-          </div>
+      <div className="row-hp">
+        <div className="col-hp ">
+          Ranting Gondrong
+          <h1>76</h1>
         </div>
-        <h2> DATA BASE WARGA MUHAMMADIYAH</h2>{" "}
-        <Table striped bordered hover>
-          <thead>
+        <div className="col-hp">
+          Ranting Cipondoh
+          <h1>61</h1>
+        </div>
+        <div className="col-hp">
+          Ranting Petir
+          <h1>53</h1>
+        </div>
+        <div className="col-hp">
+          Ranting Ketapang
+          <h1>12</h1>
+        </div>
+        <div className="col-hp">
+          Ranting Kenanga
+          <h1>35</h1>
+        </div>
+        <div className="col-hp">
+          Ranting Poris Jaya
+          <h1>38</h1>
+        </div>
+      </div>
+      <div className="ContentData">
+        <h2> DATA BASE WARGA MUHAMMADIYAH</h2>
+        <div className="text-end">
+          <a href="/TambahDataJamaah" className="btn btn-primary">
+            +
+          </a>
+          <input
+            className="Search"
+            placeholder="Cari By Nama
+            
+            
+            "
+            onChange={handleFilter}
+            type="text"
+          />
+        </div>
+
+        <Table striped border hover id="datatable" className="table">
+          <thread>
             <tr>
-              <th>No</th>
-              <th>NIK</th>
-              <th>NAMA</th>
-              <th>TEMPAT</th>
-              <th>TANGGAL LAHIR</th>
-              <th>ALAMAT</th>
-              <th>RANTING ASAL</th>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Nik</th>
+              <th>Jenis Kelamin</th>
+              <th>Tempat Lahir</th>
+              <th>Tanggal Lahir</th>
+              <th>Asal Ranting</th>
               <th>Action</th>
             </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>367100000001</td>
-              <td>Opet</td>
-              <td>Tangerang</td>
-              <td>04-08-1999</td>
-              <td>Jl Kihajar Dewantoro</td>
-              <td>Gondrong</td>
-              <td>
-                <a href="/faq">as</a>
-                <button className="btn btn-secondary" id="">
-                  {" "}
-                  Ubah
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>367100000001</td>
-              <td>Nano</td>
-              <td>Tangerang</td>
-              <td>04-08-1999</td>
-              <td>Jl Kihajar Dewantoro</td>
-              <td>Gondrong</td>
-              <td>
-                <button className="btn btn-secondary"> Ubah</button>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>367100000001</td>
-              <td>Loren</td>
-              <td>Tangerang</td>
-              <td>04-08-1999</td>
-              <td>Jl Kihajar Dewantoro</td>
-              <td>Gondrong</td>
-              <td>
-                <button className="btn btn-secondary"> Ubah</button>
-              </td>
-            </tr>
-          </tbody>
+            <tbody>
+              {data.map((tb_datainduk, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{tb_datainduk.id}</td>
+                    <td>{tb_datainduk.nama}</td>
+                    <td>{tb_datainduk.nik}</td>
+                    <td>{tb_datainduk.jk}</td>
+                    <td>{tb_datainduk.temp_lhr}</td>
+                    <td>{tb_datainduk.tgl_lhr}</td>
+                    <td>{tb_datainduk.a_ranting}</td>
+                    <td>
+                      <button className="btn btn-primary">edit</button>
+                      <button className="btn btn-danger">delete</button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </thread>
         </Table>
+
+        {/* <DataTable
+          columns={columns}
+          data={data}
+          selectableRows
+          fixedHeader
+          pagination
+        ></DataTable> */}
       </div>
     </div>
   );
