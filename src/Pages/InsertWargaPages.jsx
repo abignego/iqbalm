@@ -1,8 +1,20 @@
 import { useState } from "react";
-const InsertWargaPages = () => {
+import axios from "axios";
+
+function InsertWargaPages() {
+  const [values, setValues] = useState({
+    name: "",
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://localhost:8081/tb_datainduk", values)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="ContentIWP">
-      <form action="#">
+      <form onSubmit={handleSubmit}>
         <div className="BodyIn">
           <div className="ContainerIn">
             <span>
@@ -18,8 +30,12 @@ const InsertWargaPages = () => {
                     type="text"
                     placeholder="Masukan Nama"
                     name="name"
+                    onChange={(e) =>
+                      setValues({ ...values, name: e.target.value })
+                    }
                   />
                 </div>
+
                 <div className="column">
                   <label htmlFor="">Jenis Kelamin</label>
 
@@ -62,18 +78,33 @@ const InsertWargaPages = () => {
                       --Pilih Ranting--{" "}
                     </option>
                     <option value="Ranting Gondrong">Ranting Gondrong</option>
-                    <option value="Ranting Cipondoh">Ranting Cipondoh</option>
+                    <option
+                      value="Ranting Cipondoh"
+                      onChange={(e) =>
+                        setValues({ ...values, a_ranting: e.target.value })
+                      }
+                    >
+                      Ranting Cipondoh
+                    </option>
                     <option value="Ranting Poris">Ranting Poris</option>
                     <option value="Ranting Ketapang">Ranting Ketapang</option>
                   </select>
                 </div>
               </div>
-              <div className="row">
+              {/* <div className="row">
                 <div className="column">
                   <label htmlFor="">Alamat</label>
-                  <textarea name="" id="" cols="30" rows="10"></textarea>
+                  <textarea
+                    onChange={(e) =>
+                      setValues({ ...values, alamat: e.target.value })
+                    }
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                  ></textarea>
                 </div>
-              </div>
+              </div> */}
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>
@@ -83,6 +114,6 @@ const InsertWargaPages = () => {
       </form>
     </div>
   );
-};
+}
 
 export default InsertWargaPages;

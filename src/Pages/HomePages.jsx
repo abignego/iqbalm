@@ -152,7 +152,14 @@ const HomePages = () => {
           />
         </div>
 
-        <Table striped border hover id="datatable" className="table">
+        <Table
+          bgcolor="dark"
+          striped
+          border
+          hover
+          id="datatable"
+          className="table"
+        >
           <thread>
             <tr>
               <th>ID</th>
