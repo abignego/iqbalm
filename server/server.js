@@ -7,14 +7,14 @@ app.use(cors())
 app.use(express.json())
 
 const db = mysql.createConnection({
-    host: "localhost",
+    host: "62.72.47.86",
     user:"root",
-    password:"",
-    database: 'db_pcm'
+    password:"nC~:^m&EAE8",
+    database: 'forming'
 })
 
-app.get('/',(req, res)=>{
-    const sql = " SELECT * FROM tb_datainduk"
+app.get('/forming',(req, res)=>{
+    const sql = " SELECT * FROM dbmu"
     db.query(sql,(err,result)=>{
         if(err)return res.json({Message:"Error inside server"});
         return res.json(result);
@@ -23,10 +23,8 @@ app.get('/',(req, res)=>{
 
 })
 
-
-
-app.post('/tb_datainduk',(req,res)=> {
-    const sql = "INSERT INTO tb_datainduk ('nama') VALUES (?)";
+app.post('/dbmu',(req,res)=> {
+    const sql = "INSERT INTO dbmu ('nama') VALUES (?)";
     const values=[
         req.body.name,
     ]
@@ -35,7 +33,7 @@ app.post('/tb_datainduk',(req,res)=> {
         return res.json(result);
     })
 })
-app.listen(8081,()=>{
+app.listen(8001,()=>{
 
     console.log("Listening")
 })

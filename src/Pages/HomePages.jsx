@@ -12,7 +12,7 @@ import {
   BarElement,
 } from "chart.js";
 
-import { Bar } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import axios from "axios";
 
 ChartJs.register(
@@ -107,7 +107,7 @@ const HomePages = () => {
   return (
     <div className="Homepages">
       <div className="chart">
-        <Bar data={date} options={options} />
+        <Line data={date} options={options} />
       </div>
       <div className="row-hp">
         <div className="col-hp ">
@@ -172,16 +172,16 @@ const HomePages = () => {
               <th>Action</th>
             </tr>
             <tbody>
-              {data.map((tb_datainduk, index) => {
+              {data.map((dbmu, index) => {
                 return (
                   <tr key={index}>
-                    <td>{tb_datainduk.id}</td>
-                    <td>{tb_datainduk.nama}</td>
-                    <td>{tb_datainduk.nik}</td>
-                    <td>{tb_datainduk.jk}</td>
-                    <td>{tb_datainduk.temp_lhr}</td>
-                    <td>{tb_datainduk.tgl_lhr}</td>
-                    <td>{tb_datainduk.a_ranting}</td>
+                    <td>{dbmu.id}</td>
+                    <td>{dbmu.nama}</td>
+                    <td>{dbmu.nik}</td>
+                    <td>{dbmu.jk}</td>
+                    <td>{dbmu.temp_lhr}</td>
+                    <td>{dbmu.tgl_lhr}</td>
+                    <td>{dbmu.a_ranting}</td>
                     <td>
                       <button className="btn btn-primary">edit</button>
                       <button className="btn btn-danger">delete</button>
