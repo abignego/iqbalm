@@ -19,20 +19,9 @@ app.get('/forming',(req, res)=>{
         if(err)return res.json({Message:"Error inside server"});
         return res.json(result);
     })
-
-
 })
 
-app.post('/dbmu',(req,res)=> {
-    const sql = "INSERT INTO dbmu ('nama') VALUES (?)";
-    const values=[
-        req.body.name,
-    ]
-    db.query(sql,[values],(err,result)=>{
-        if(err) return res.json(err);
-        return res.json(result);
-    })
-})
+
 app.listen(8001,()=>{
 
     console.log("Listening")

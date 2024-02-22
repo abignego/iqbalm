@@ -14,6 +14,7 @@ import {
 
 import { Bar, Line } from "react-chartjs-2";
 import axios from "axios";
+import { error } from "console";
 
 ChartJs.register(
   LineElement,
@@ -26,12 +27,16 @@ ChartJs.register(
 );
 
 const HomePages = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   useEffect(() => {
     axios
-      .get("http://localhost:8081/")
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
+      .get("http://localhost:8001/forming")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   const date = {
@@ -106,9 +111,6 @@ const HomePages = () => {
 
   return (
     <div className="Homepages">
-      <div className="chart">
-        <Line data={date} options={options} />
-      </div>
       <div className="row-hp">
         <div className="col-hp ">
           Ranting Gondrong
@@ -171,25 +173,7 @@ const HomePages = () => {
               <th>Asal Ranting</th>
               <th>Action</th>
             </tr>
-            <tbody>
-              {data.map((dbmu, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{dbmu.id}</td>
-                    <td>{dbmu.nama}</td>
-                    <td>{dbmu.nik}</td>
-                    <td>{dbmu.jk}</td>
-                    <td>{dbmu.temp_lhr}</td>
-                    <td>{dbmu.tgl_lhr}</td>
-                    <td>{dbmu.a_ranting}</td>
-                    <td>
-                      <button className="btn btn-primary">edit</button>
-                      <button className="btn btn-danger">delete</button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
+            <tbody></tbody>
           </thread>
         </Table>
 
