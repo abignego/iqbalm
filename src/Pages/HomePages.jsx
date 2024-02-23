@@ -15,6 +15,7 @@ import {
 import { Bar, Line } from "react-chartjs-2";
 import axios from "axios";
 import { error } from "console";
+import { getUsers } from "../../server/controller/UserContoller";
 
 ChartJs.register(
   LineElement,
@@ -26,19 +27,18 @@ ChartJs.register(
   Legend
 );
 
-const HomePages = () => {
-  const [data, setData] = useState();
-  useEffect(() => {
-    axios
-      .get("http://localhost:8001/forming")
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+useEffect(() => {
+  getUsers();
+}, []);
 
+const HomePages = () => {
+  const UserList = () => {
+    const [users, setUser] = useState([]);
+    const getUsers = async () => {
+      const response = await axios.get("https:/localhost/8001/forming");
+      console.log(response.data);
+    };
+  };
   const date = {
     labels: ["Gondrong", "Petir", "Cipondoh", "Ketapang", "Kenanga", "Poris"],
     datasets: [
