@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import DataTable from "react-data-table-component";
 import { Table } from "react-bootstrap";
 import {
   Chart as ChartJs,
@@ -12,11 +11,6 @@ import {
   BarElement,
 } from "chart.js";
 
-import { Bar, Line } from "react-chartjs-2";
-import axios from "axios";
-import { error } from "console";
-import { getUsers } from "../../server/controller/UserContoller";
-
 ChartJs.register(
   LineElement,
   BarElement,
@@ -27,87 +21,21 @@ ChartJs.register(
   Legend
 );
 
-useEffect(() => {
-  getUsers();
-}, []);
-
 const HomePages = () => {
-  const UserList = () => {
-    const [users, setUser] = useState([]);
-    const getUsers = async () => {
-      const response = await axios.get("https:/localhost/8001/forming");
-      console.log(response.data);
-    };
-  };
-  const date = {
-    labels: ["Gondrong", "Petir", "Cipondoh", "Ketapang", "Kenanga", "Poris"],
-    datasets: [
-      {
-        label: "Penambahan Data Tiap Bulan",
-        data: [30, 33, 54, 34, 66, 32],
-        borderColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-          "rgba(255, 205, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-        ],
-        tension: 0.4,
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-          "rgba(255, 205, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-        ],
-        borderWidth: 2,
-      },
-    ],
+  // const url = "https://fakestoreapi.com/products";
+  const url = "http://localhost:8001/forming";
+  const [users, setUsers] = useState([]);
+
+  const getUsers = async () => {
+    const response = await fetch(url);
+    const dataUsers = await response.json();
+    setUsers(dataUsers);
+    console.log(users);
   };
 
-  const options = {};
-  const columns = [
-    {
-      name: "Nama",
-      selector: (row) => row.name,
-      sortable: true,
-    },
-    {
-      name: "Nik",
-      selector: (row) => row.nik,
-    },
-    {
-      name: "Tempat Lahir",
-      selector: (row) => row.tept,
-    },
-
-    {
-      name: "Tanggal Lahir",
-      selector: (row) => row.tgllhr,
-    },
-    {
-      name: "Asal Ranting",
-      selector: (row) => row.asal,
-    },
-  ];
-
-  const [records, setRecords] = useState(data);
-
-  function handleFilter(event) {
-    const newData = data.filter((row) => {
-      return row.name
-        .toLowerCase()
-        .includes(
-          event.target.value.toLowerCase(),
-          row.nik
-            .toLocaleLowerCase()
-            .includes(event.target.value.toLocaleLowerCase())
-        );
-    });
-    setRecords(newData);
-  }
+  useEffect(() => {
+    getUsers();
+  });
 
   return (
     <div className="Homepages">
@@ -143,15 +71,6 @@ const HomePages = () => {
           <a href="/TambahDataJamaah" className="btn btn-primary">
             +
           </a>
-          <input
-            className="Search"
-            placeholder="Cari By Nama
-            
-            
-            "
-            onChange={handleFilter}
-            type="text"
-          />
         </div>
 
         <Table
@@ -173,7 +92,19 @@ const HomePages = () => {
               <th>Asal Ranting</th>
               <th>Action</th>
             </tr>
-            <tbody></tbody>
+            <tbody>
+              {users.map((data, index) => (
+                <tr key={index + 1}>
+                  <td>{data?.id}</td>
+                  <td>{data?.nama}</td>
+                  <td>{data?.nik}</td>
+                  <td>{data?.jk}</td>
+                  <td>{data?.tempat}</td>
+                  <td>{data?.tanggal}</td>
+                  <td>{data?.ranting}</td>
+                </tr>
+              ))}
+            </tbody>
           </thread>
         </Table>
 
